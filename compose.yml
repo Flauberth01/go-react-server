@@ -10,6 +10,18 @@ services:
         POSTGRES_DB: ${WBRS_DATABASE_NAME}
       volumes:
         - db:/var/lib/postgresql/data
+
+  pgadmin:
+      image: dpage/pgadmin4
+      environment:
+        PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+        PGADMIN_DEFAULT_PASSWORD: "password"
+      ports:
+        - "8081:80"
+      depends_on:
+        - db
 volumes:
   db: 
+    driver: local
+  pgadmin:
     driver: local
