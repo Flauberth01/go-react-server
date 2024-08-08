@@ -3,11 +3,11 @@ services:
       image: postgres:latest
       restart: unless-stopped
       ports:
-        - ${WBRS_DATABASE_PORT:-5432}:5432
+        - ${WSRS_DATABASE_PORT:-5432}:5432
       environment:
-        POSTGRES_USER: ${WBRS_DATABASE_USER}
-        POSTGRES_PASSWORD: ${WBRS_DATABASE_PASSWORD}
-        POSTGRES_DB: ${WBRS_DATABASE_NAME}
+        POSTGRES_USER: ${WSRS_DATABASE_USER}
+        POSTGRES_PASSWORD: ${WSRS_DATABASE_PASSWORD}
+        POSTGRES_DB: ${WSRS_DATABASE_NAME}
       volumes:
         - db:/var/lib/postgresql/data
 
